@@ -1,0 +1,39 @@
+
+-- questao 00 Soma
+soma x y = x + y
+
+-- quesao 01 miolo da lista
+interior xs = tail(init xs)
+
+-- questao 02 Tres guais
+iguais3 a b c = if a == b && a == c
+                    then 3
+                    else if (a == b && a /= c) || (a /= b && b == c)
+                        then 2
+                    else 0
+
+--questao 03 Max3
+max3 a b c = if a > b && a > c
+                then a
+                else if b > a && b > c
+                    then b
+                else if c > a && c > b
+                    then c
+                else 0
+
+-- questao 04 soma impares
+somaimpares xs = sum (filter odd xs)
+
+-- questao 05 neglist
+neglist xs = length (filter (< 0) xs)
+
+-- questao 06 pedaco do rabo
+final a xs = drop (length xs - a) xs
+
+-- questao 07 Gangorra
+gangorra p_1 c_1 p_2 c_2 = if p_1*c_1 == p_2*c_2
+                                then 0
+                            else if p_1*c_1 > p_2*c_2
+                                then 1
+                            else -1
+                
