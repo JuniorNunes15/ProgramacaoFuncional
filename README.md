@@ -1,4 +1,4 @@
-# Programação Funcional
+# Functional Programming
 
 My public profile in Exercism  
 https://exercism.org/profiles/JuniorNunes15
