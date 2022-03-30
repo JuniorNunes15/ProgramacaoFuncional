@@ -1,9 +1,8 @@
---compiling the chapter 1 e 2
+--compiling the chapter 1 e 2 examples
 
 --immutable list of numbers 
 xs :: [Integer]
 xs = [1,2,3,4,5,6,7,8]
-
 
 --Baby's firsts functions
 doubleMe :: Num a => a -> a
