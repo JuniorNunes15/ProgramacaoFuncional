@@ -25,7 +25,6 @@ doubleSmallNumber' x = (if x > 100 then x else x*2) + 1
 
 conanO'Brien :: [Char]
 conanO'Brien = "It's a-me, Mari... Conan O'Brien!"
-
 boomBangs :: Integral a => [a] -> [[Char]]
 boomBangs xs = [ if x < 10 then "BOOM!" else "BANG!" | x <- xs, odd x] 
 
