@@ -62,8 +62,9 @@ divide :: [a] -> Int -> [[a]]
 divide xs x = take x xs : [drop x xs]
 
 
---partition
 
+splitints :: (a -> Bool) -> [a] -> [[a]]
+splitints x xs = [filter x xs] ++ [filter (not . x) xs]
 
 
 --recursive
