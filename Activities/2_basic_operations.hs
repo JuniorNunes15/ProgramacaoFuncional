@@ -64,7 +64,7 @@ divide xs x = take x xs : [drop x xs]
 
 
 splitints :: (a -> Bool) -> [a] -> [[a]]
-splitints x xs = [filter x xs] ++ [filter (not . x) xs]
+splitints x xs = [(filter x xs)] ++ [(filter (not . x) xs)]
 
 
 --recursive
