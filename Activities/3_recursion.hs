@@ -54,7 +54,19 @@ reverso [] = []
 reverso (x:xs) = reverso xs ++ [x]
 
 
---menores
+menores :: Ord a => Int -> [a] -> [a]
+menores x xs 
+            | x <= length xs = reverse $ filterMenor (length xs - x) (reverse xs)
+            | otherwise = xs
+            where
+                filterMenor 0 xs = xs
+                filterMenor x xs = filterMenor (x-1) (deletee (maior xs) xs) --deleta a primeira ocorrencia do maior elemento da lista e chama recursivamente até ter tirado todos os maiores
+
+                maior [x] = x --pega o maior elemento da lista
+                maior (x:y:xs)
+                        | y > x = maior (y:xs)
+                        | otherwise = maior (x:xs)
+
 
 
 removerMaior :: Ord a => [a] -> [a]
@@ -105,7 +117,17 @@ listacc [] = []
 listacc (x:y:xs) = x: listacc (x+y:xs)
 
 
---line
+line x = lai'' x (line' x)
+        where
+            lai'' 0 _ = []
+            lai'' y x = x : lai'' (y-1) (x+1) 
+
+            line' 0 = 0
+            line' 1 = 1
+            line' n = (n-1)+ line' (n-1)
 
 
+triangle :: (Eq a, Num a) => a -> [[a]]
+triangle 0 = []
+triangle x = triangle(x-1) ++ [line x]
 
