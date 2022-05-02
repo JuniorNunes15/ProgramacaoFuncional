@@ -1,0 +1,1 @@
+3. Dica: Não é possível formar um triângulo se ele tiver algum lado maior que a soma dos outros dois.

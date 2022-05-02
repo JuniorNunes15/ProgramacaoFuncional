@@ -1,0 +1,1 @@
+1. Faça uma recursão de cauda que retorna -1. Caso encontre o elemento, você retorna 0. Ao receber a recursão, você verifica se encontrou ou não o valor e ajusta o valor de retorno.

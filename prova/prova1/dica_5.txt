@@ -1,0 +1,6 @@
+5. Dica: Como fazer um laço do tipo para duas variáveis só? 
+for (int i = 0; i < last; i++)
+    for (int j = i + 1; j < last; j++)
+
+Você pode usar o list compreension com dois geradores: [  |  i <- [0..last], j <- [i + 1..last]]
+Com esse macete adaptado para 3 variáveis você pode gerar todas as combinações de palitos para os tres palitos e testar quais formam triangulos.

@@ -1,0 +1,1 @@
+4. Dica: Some todos os valores. Faça um loop(recursão ou fold) passando por cada valor, (soma - valor) dá a soma de todos os outros. Se valor > soma dos outros, não pode existir polígono.

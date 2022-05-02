@@ -1,0 +1,3 @@
+2. Para fazer a recusão de cauda, você terá que usar o foldr. Poderá então utilizar a mesma lógica da questão 1.
+
+Para o acumulador do fold, empacote (y, resposta) numa tupla.
