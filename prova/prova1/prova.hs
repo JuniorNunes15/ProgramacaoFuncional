@@ -53,8 +53,6 @@ ehPoligono xs
 
 
 --5
-
-
 combinacoes :: (Ord a, Num a) => [a] -> [(a, a, a)]
 combinacoes [x, y] = []
 combinacoes (x:xs) = triangulo x xs ++ combinacoes xs
