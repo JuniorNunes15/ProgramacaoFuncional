@@ -53,13 +53,15 @@ ehPoligono xs
 
 
 --5
-combinacoes :: (Ord a, Num a) => [a] -> [[a]]
+
+
+combinacoes :: (Ord a, Num a) => [a] -> [(a, a, a)]
 combinacoes [x, y] = []
 combinacoes (x:xs) = triangulo x xs ++ combinacoes xs
             where
                 triangulo a [x] = []
                 triangulo a (x:y:xs)
-                                | a + x > y && a + y > x && x + y > a = [a,x,y] : triangulo a (y:xs)
+                                | a + x > y && a + y > x && x + y > a = (a,x,y) : triangulo a (y:xs)
                                 | otherwise = triangulo a (y:xs)
 
 
