@@ -20,7 +20,9 @@ dig2char x = intToDigit x
 --dig2char x = toEnum x
 
 ---fit :: (String, Int) ->  Int -> Int -> Bool
---fit (xs, lim) index value = 
+fit (xs, lim) index value
+                        | (length $ filter(==value)(neib xs index lim)) > 0 = False
+                        | otherwise = True
 
 
 getHoles :: String -> [Int]
