@@ -16,8 +16,10 @@ exists y xs = length (filter(==y) xs) == 1
 
 
 --dig2char :: (Eq a, Num a, Enum a) => a -> Char
-dig2char x = intToDigit x
+--dig2char x = intToDigit x
 --dig2char x = toEnum x
+--dig2char :: (Eq a, Num a, Enum a) => a -> Char
+--dig2char x = x + '0'
 
 ---fit :: (String, Int) ->  Int -> Int -> Bool
 fit (xs, lim) index value
@@ -36,3 +38,6 @@ getHoles' (x:xs) ind
 set (x:xs) 0 value = value : xs
 set (x:xs) index value = x : set xs (index-1) value
 
+
+solve (xs, lim) holes hindex =
+    
