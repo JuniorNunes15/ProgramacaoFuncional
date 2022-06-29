@@ -11,4 +11,5 @@ rev x = rev' x 0
                     | x < 10 = cont + x
                     | otherwise = rev' (div x 10) ((cont+(mod x 10))*10)
 
+--coverte a b
 
