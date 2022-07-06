@@ -29,22 +29,29 @@ resume info = trace (toString info) info
 
 -- cria um carro passando maxPass e maxGas - retorna sempre true.
 createCar :: Int -> Int -> Info
+createCar maxPass maxGas = Info (Car 0 maxPass 0 maxGas 0) (Op "create" True)
 
 -- enche o tanque passando a qtd de gas. Retorna falso apenas se o tanque já estiver completamente cheio.
 fuel :: Int -> Info -> Info
+fuel mgas (Info (Car pass maxPass gas maxGas km) x) = Info (Car pass maxPass (min (gas+mgas) maxGas) maxGas km) (Op "fuel" $ gas<maxGas)
 
 -- Faz entrar uma pessoa no carro. Retorna false se já estiver lotado.
 embark :: Info -> Info 
+embark (Info (Car pass maxPass gas maxGas km) x) = Info (Car (min (pass+1) maxPass) maxPass gas maxGas km) (Op "embark" $ pass<maxPass)
 
 -- Retira uma pessoa do carro, retorna false se não tiver ninguém no carro
 disembark :: Info -> Info
+disembark (Info (Car pass maxPass gas maxGas km) x) = Info (Car (max(pass-1) 0) maxPass gas maxGas km) (Op "disembark" $ pass/=0)
 
 -- dirige diminuindo a gasolina e aumentando km. 
 -- Só é possível dirigir se houver alguém no carro e houver alguma gasolina.
 -- Aumenta a km da gasolina gasta.
 -- retorna false se não há ninguém no carro ou se não tinha gasolina para completar a viagem.
 drive :: Int -> Info -> Info 
-
+drive gasGasta (Info (Car pass maxPass gas maxGas km) x)
+                                            | pass == 0 = Info (Car pass maxPass gas maxGas km) (Op "drive" False)
+                                            | gas == 0 = Info (Car pass maxPass gas maxGas km) (Op "drive" False)
+                                            | otherwise = Info (Car pass maxPass (max (gas-gasGasta) 0) maxGas (km+(min gasGasta gas))) (Op "drive" $ gasGasta < gas)
 
 -- main = print $ resume . embark . resume. embark . resume $ createCar 2 50
 main = do 
