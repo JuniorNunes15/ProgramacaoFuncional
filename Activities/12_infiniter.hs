@@ -34,10 +34,13 @@ expe x y cont
 
 
 
- 
-decompor x 
-        | x < 10 = [x]
-        | otherwise = decompor (div x 10) ++ [mod x 10] 
+decompor x = reverse $ take (pega x) $ dec x
+        where 
+            pega 0 = 0
+            pega x = 1+ pega (div x 10)
+dec x 
+        | x < 10 = [x] ++ dec (div x 10)
+        | otherwise = [mod x 10] ++ dec (div x 10)
 
 
 --base
