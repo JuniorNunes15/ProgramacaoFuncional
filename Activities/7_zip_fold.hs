@@ -19,7 +19,11 @@ indices v xs = find $ zip xs [0..]
 
 
 
---concatMap
+--concatMap apenas com map
+concatMap' xs ys = cd $ map xs ys
+                    where
+                        cd [] = []
+                        cd (x:xs) = x++ cd xs
 
 
 --eh primo
@@ -35,6 +39,8 @@ ehPrimo x
 
 
 --mudancaDeBase
+
+
 
 
 --reduce:
