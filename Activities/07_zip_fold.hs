@@ -18,7 +18,6 @@ indices v xs = find $ zip xs [0..]
                                 | otherwise = find xs
 
 
-
 --concatMap apenas com map
 concatMap' xs ys = cd $ map xs ys
                     where
@@ -33,7 +32,6 @@ ehPrimo x
         | otherwise = True
 
 
-
 --vigenere
 
 
@@ -42,8 +40,7 @@ ehPrimo x
 
 
 
-
---reduce:
+--reduce
 divide (a,b) x
                 | mod a x == 0 && mod b x == 0 = divide (div a x, div b x) x
                 | otherwise = (a,b)
