@@ -1,7 +1,7 @@
 import Data.List
 import Data.Maybe
 
-
+--elem index
 myElemIndex y xs = myIndex' y xs 0
                 where
                     myIndex' y [] cont = Nothing
@@ -10,6 +10,7 @@ myElemIndex y xs = myIndex' y xs 0
                                         | otherwise = myIndex' y xs (cont+1)
 
 
+--soma maybe
 somaMaybe a b
             | isJust a && isJust b = Just $ fromJust a + fromJust b
             | isNothing a = b
@@ -17,6 +18,7 @@ somaMaybe a b
             | otherwise = Nothing
 
 
+--filter maybe
 filterMaybe [] = []
 filterMaybe (x:xs)
                 | isJust x = fromJust x :  filterMaybe xs
