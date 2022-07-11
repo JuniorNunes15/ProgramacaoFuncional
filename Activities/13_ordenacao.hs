@@ -43,6 +43,7 @@ inserir a (x:xs)
 --qsort
 
 
+
 --merge
 merge [] ys = ys
 merge xs [] = xs
