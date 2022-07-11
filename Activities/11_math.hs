@@ -15,6 +15,7 @@ rev x = rev' x 0
 
 
 --base mudanca de base
+base :: Int -> Int -> [Char]
 base x y 
         | x < y = [dx !! x]
         | otherwise = base (div x y) y ++ [dx !! (mod x y)]
