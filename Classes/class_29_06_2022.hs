@@ -37,9 +37,11 @@ processa' vet = ganhador (proa' 0 $ ind(proa vet))
 
                 ganhador xs
                         | xs == [] = "sem ganhador"
-                        |otherwise = gan xs
+                        | length xs == 1 = "1"
+                        | otherwise = ganhador(gan (head xs) (head (tail xs)))
 
                 gan (ind,(a,b)) (ind2, (c, d))
+                                        | abs (a-b) > abs (c-d) = ganhador (ind2,(c,d)):
 
 
 main :: IO ()
