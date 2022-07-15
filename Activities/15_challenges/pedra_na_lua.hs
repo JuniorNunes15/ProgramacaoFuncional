@@ -1,3 +1,4 @@
+{-# OPTIONS_GHC -Wno-incomplete-patterns #-}
 
 import Control.Monad (replicateM)
 --pedras na lua
