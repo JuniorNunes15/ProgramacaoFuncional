@@ -7,7 +7,7 @@ toInt x = read x :: Int
 --    where 
 ---     [a, b] = map toInt . words $  line
 
-processa vet = colar 0 (pro' $ ind(pro vet))
+processa vet = vencedor(filtra (colar 0 (pro' $ ind(pro vet))))
             where
                 pro [] = []
                 pro (x:vet) = words ((x:vet)!!0) ++ pro vet
@@ -21,8 +21,25 @@ processa vet = colar 0 (pro' $ ind(pro vet))
                 colar ind [] = []
                 colar ind (x:xs) = [(ind,x)] ++ colar (ind+1) xs
 
+                filtra [] = []
+                filtra (x:xs) = filt x ++ filtra xs
 
-processa' vet = ganhador (proa' 0 $ ind(proa vet))
+                filt (a,(b,c))
+                            | b < 10 || c < 10 = []
+                            | otherwise = [(a,(b,c))]
+
+                vencedor [] = "sem ganhador"
+                vencedor (x:[]) = venc x
+                vencedor (x:y:xs)
+                                | contvenc x < contvenc y = vencedor (x:xs)
+                                | otherwise = vencedor (y:xs)
+
+                venc (a,(b,c)) = show a
+
+                contvenc (a,(b,c)) = abs (b-c)
+
+
+{-processa' vet = ganhador (proa' 0 $ ind(proa vet))
             where
                 proa [] = []
                 proa (x:vet) = words ((x:vet)!!0) ++ proa vet
@@ -41,12 +58,13 @@ processa' vet = ganhador (proa' 0 $ ind(proa vet))
                         | otherwise = ganhador(gan (head xs) (head (tail xs)))
 
                 gan (ind,(a,b)) (ind2, (c, d))
-                                        | abs (a-b) > abs (c-d) = ganhador (ind2,(c,d)):
-
+                                        | abs (a-b) > abs (c-d) = show ind2
+                                        | otherwise = show ind
+-}
 
 main :: IO ()
 main = do
     size <- readLn :: IO Int
     vet <- replicateM size getLine
-    print $ processa' vet
+    print $ processa vet
 
